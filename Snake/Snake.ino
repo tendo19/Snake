@@ -55,6 +55,7 @@ void direction()
     delay(500);
   }
   if (dir==180)
+  {
     y--;
     delay(500);
   }
