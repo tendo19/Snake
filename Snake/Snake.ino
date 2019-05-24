@@ -27,6 +27,7 @@ int applesEaten = 0;
 int setAuxLEDs = applesEaten - 1;
 int marker = 5;
 int t = 500;
+int Color;
 
 void setup() 
 {
@@ -44,12 +45,9 @@ void loop()
 {
  drawsnake();
  spawnapple();
- 
  DisplaySlate();
  delay(100);
-
  ClearSlate(); 
- 
  moveapple();
  direction();
  movesnake();
@@ -58,23 +56,24 @@ void loop()
  updatesnake();
 }
 
-void delaytime()
+void delaytime()  //tried to make a code that makes the snake faster when applesEaten increases
 {
   if (applesEaten < 2)
   {
     t = 500;
   }
-  if (applesEaten > 2)
+  if (applesEaten >= 2)
   {
     if (applesEaten < 4)
     {
       t = 200;     
     }
   }
-  if (applesEaten > 4)
+  if (applesEaten >= 4)
   {
     t = 100;
   }
+  delay(t);
 }
 
 
@@ -133,7 +132,7 @@ void eating()
   {
     applesEaten++;
   }
-  setAuxLEDs = applesEaten - 1;
+  SetAuxLEDs(applesEaten - 1);
 }
 
 
